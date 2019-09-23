@@ -1,0 +1,75 @@
+@import "./surveyForm.scss";
+
+
+body {
+  background: #ef3b36; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ef3b36,
+    #ffffff
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ef3b36,
+    #ffffff
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+* {
+  font-family: "Open Sans", sans-serif;
+  box-sizing: border-box; // margin: 0;
+  // padding: 0;
+}
+
+.btn {
+  margin: 10px;
+}
+
+.display {
+  padding: 10px;
+  margin: 10px;
+  width: 100px;
+  word-wrap: break-word;
+  text-align: center;
+  display: inline-block;
+  // height: auto;
+  border-radius: 5px;
+  background-color: #ffb;
+}
+
+
+// calculator 
+.calculator {
+  background-color: mistyrose;
+  display: flex;
+  flex-wrap: wrap;
+  width: 200px;
+  border: 2px solid green;
+
+  .cell {
+    width: 33%;
+    border: .5px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cell:hover {
+    background:darken(mistyrose, 5%);
+    color: white;
+  }
+
+  .mult {
+    @extend .cell;
+  }
+
+  
+}
+.result, .reset {
+  @extend .cell;
+  background-color: mistyrose;
+  width: 200px;
+  border: 1px solid black;
+  flex: 3;
+  color: red;
+}

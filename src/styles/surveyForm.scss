@@ -1,0 +1,164 @@
+    $inputBackground: #FFFAFA;
+    $inputBorder: #FFE4E1;
+    $outlineColor: #FFE4E1;
+    $button: #CD5C5C;
+    $buttonHover: #8B2323;
+
+    
+
+    h1 {
+        text-align: center;
+    }
+
+    .container {
+        background: white;
+        width: 95%;
+        margin: 20px auto;
+        border-radius: 5px;
+
+        p#description {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 0;
+        }
+
+        fieldset {
+            border: none;
+            .section {
+                display: flex;
+                flex-wrap: wrap;
+                margin: 10px auto;
+                align-items: center;
+
+                >* {
+                    flex: 1 250px;
+                }
+
+                >p,
+                >label {
+                    text-align: left;
+                    font-weight: 600;
+                    padding: 10px;
+                    align-self: flex-start;
+                }
+            }
+
+            .inputs {
+
+                input[type="text"],
+                input[type="email"],
+                input[type="number"],
+                input[type="tel"],
+                input[type="date"],
+                select {
+                    width: 90%;
+                    height: 30px;
+                    border: 2px solid $inputBorder;
+                    border-radius: 5px;
+                    background: $inputBackground;
+                    box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.3);
+                    text-align: left;
+                    outline-color: $outlineColor;
+                    font-size: 0.9em;
+                }
+
+                textarea {
+                    width: 80%;
+                    margin: 10px 0;
+                    border: 2px solid $inputBorder;
+                    background: $inputBackground;
+                    outline-color: $outlineColor;
+                    box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.3);
+                    border-radius: 5px;
+                    font-size: 0.9em;
+                }
+            }
+            .options {
+                label {
+                    display: block;
+                    padding: 3px;
+                }
+            }
+            input[type="submit"] {
+                display: block;
+                width: 40%;
+                padding: 10px;
+                background: $button;
+                margin: 20px auto;
+                border: 2px solid #CD5555;
+                color: white;
+                border-radius: 5px;
+                font-size: 1em;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            }
+            input[type="submit"]:hover {
+                box-shadow: 0 2px 7px $buttonHover;
+            }
+        }
+    }
+
+    @media only screen and(min-width: 500px) {
+        // * {
+        //     color: red
+        // }
+        .container {
+
+            fieldset {
+
+                .section {
+                    >* {
+                        flex: 2;
+                    }
+                    >p,
+                    >label {
+                        text-align: right;
+                    }
+
+                    .inputs {
+                        input[type="text"],
+                        input[type="email"],
+                        input[type="number"],
+                        input[type="tel"],
+                        input[type="date"],
+                        select {
+                            width: 100%;
+                        }
+
+                        textarea {
+                            width: 95%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    @media only screen and(min-width: 700px) {
+        // *{color: red}
+        .container {
+            width: 80%;
+
+            fieldset {
+
+                .section {
+
+                    .inputs {
+                        input[type="text"],
+                        input[type="email"],
+                        input[type="number"],
+                        input[type="tel"],
+                        input[type="date"],
+                        select {
+                            width: 70%;
+                        }
+                    }
+                }
+                input[type="submit"] {
+                    width: 20%;
+                }
+            }
+        }
+    }
