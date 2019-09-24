@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import CreateBlogPost from "./CreateBlogPost";
 import { connect } from "react-redux";
-import { fetchPosts, editPost } from "../actions";
+import { fetchPost, editPost } from "../actions";
 
 class EditPost extends Component {
   componentDidMount() {
-    if (this.props.isLoggedIn) this.props.fetchPosts()//(this.props.match.params.id);
+    if (this.props.isLoggedIn) this.props.fetchPost(this.props.match.params.id);
   }
 
   onSubmit = formValues => {
-    console.log(formValues);
+    // console.log(formValues);
     // console.log(this.props.match.params.id)
     this.props.editPost(this.props.match.params.id, formValues)
   };
@@ -54,5 +54,5 @@ const mapStateToProps = (state, ownProps) => {
 };
 export default connect(
   mapStateToProps,
-  { fetchPosts, editPost }
+  { fetchPost, editPost }
 )(EditPost);

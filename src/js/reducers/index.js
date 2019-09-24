@@ -9,7 +9,8 @@ import {
   FETCH_POSTS,
   FETCH_POST,
   CREATE_NEW_POST,
-  EDIT_POST
+  EDIT_POST,
+  DELETE_POST
 } from "../actions/types";
 
 const addDefaultState = { sum: 0, addedNum: null };
@@ -147,9 +148,11 @@ const postsReducer = (state = postsReducerDefaultState, action) => {
     case FETCH_POSTS:
       return [...action.payload];
     case FETCH_POST:
-      return [action.payload];
+      return state.map((post) => Number(post.id) === action.payload.id ? action.payload : post);
     case EDIT_POST:
-      return state.map((post) => Number(post.id) === action.payload.id ? action.payload : post)
+      return state.map((post) => Number(post.id) === action.payload.id ? action.payload : post);
+      case DELETE_POST: 
+      return state.filter(post => post.id !== action.payload)
     default:
       return state;
   }

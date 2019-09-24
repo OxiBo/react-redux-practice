@@ -8,7 +8,8 @@ import {
   FETCH_POSTS,
   FETCH_POST,
   CREATE_NEW_POST,
-  EDIT_POST
+  EDIT_POST,
+  DELETE_POST
 } from "./types";
 import clients from "../../apis/clientsApi";
 
@@ -115,3 +116,10 @@ export const editPost = (id, formValues) => async dispatch => {
  
   history.push("/posts")
 }
+
+
+export const deletePost = (id) => async dispatch => {
+  await clients.delete(`/posts/${id}`);
+
+  dispatch({ type: DELETE_POST, payload: id });
+};

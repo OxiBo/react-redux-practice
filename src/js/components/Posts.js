@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import CreateBlogPost from "./CreateBlogPost";
-import { fetchPosts, createNewPost } from "../actions";
+import { fetchPosts, createNewPost, deletePost } from "../actions";
 
 class Posts extends Component {
   componentDidMount() {
@@ -15,11 +15,11 @@ class Posts extends Component {
   renderAdmin(post) {
     if (this.props.currentUserId === post.userId) {
       return (
-        <div className="ui">
+        <div className="right floated content">
           <Link className="ui button primary" to={`/posts/editPost/${post.id}`}>
             EDIT
           </Link>
-          <button className="ui button danger">DELETE</button>
+          <button className="ui button negative" onClick={() =>this.props.deletePost(post.id)}>DELETE</button>
           {/* {this.editPost() && <CreateBlogPost  />} */}
         </div>
       );
@@ -29,8 +29,8 @@ class Posts extends Component {
   renderPosts() {
     return this.props.posts.map(post => {
       return (
-        <div key={`${post.id}-${post.title}`} className="">
-          <h5 className="header">{post.title}</h5>
+        <div key={`${post.id}`} className="item">
+          <h5 className="ui header">{post.title}</h5>
           <p className="ui message">{post.post}</p>
           {this.renderAdmin(post)}
         </div>
@@ -51,10 +51,10 @@ class Posts extends Component {
     return (
       <div>
         <div className="container">
-          {this.props.isLoggedIn && <CreateBlogPost onSubmit={this.onSubmit} />}
+          {this.props.isLoggedIn && <CreateBlogPost initialValues={{title: "WTF??", post: "for real!"}} onSubmit={this.onSubmit} />}
         </div>
        
-        <div className="container">{this.renderPosts()}</div>
+        <div className="ui celled list">{this.renderPosts()}</div>
       </div>
     );
   }
@@ -69,5 +69,5 @@ const mapStateToProps = state => {
 };
 export default connect(
   mapStateToProps,
-  { fetchPosts, createNewPost }
+  { fetchPosts, createNewPost, deletePost }
 )(Posts);
