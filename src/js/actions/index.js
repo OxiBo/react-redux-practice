@@ -7,7 +7,8 @@ import {
   LOG_OUT,
   FETCH_POSTS,
   FETCH_POST,
-  CREATE_NEW_POST
+  CREATE_NEW_POST,
+  EDIT_POST
 } from "./types";
 import clients from "../../apis/clientsApi";
 
@@ -102,7 +103,15 @@ export const fetchPost = (id) => async dispatch => {
 
 export const fetchPosts = () => async dispatch => {
     const response = await clients.get("/posts");
-  
+  // console.log(response.data)
     dispatch({ type: FETCH_POSTS, payload: response.data });
   };
   
+
+export const editPost = (id, formValues) => async dispatch => {
+  const response = await clients.patch(`/posts/${id}`, {id: id,...formValues });
+ 
+  dispatch({ type: EDIT_POST, payload: { ...response.data, id: id }});
+ 
+  history.push("/posts")
+}

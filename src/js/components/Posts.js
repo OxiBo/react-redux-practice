@@ -7,7 +7,7 @@ import { fetchPosts, createNewPost } from "../actions";
 
 class Posts extends Component {
   componentDidMount() {
-    this.props.fetchPosts();
+    if(this.props.isLoggedIn) this.props.fetchPosts();
   }
 
   
@@ -29,7 +29,7 @@ class Posts extends Component {
   renderPosts() {
     return this.props.posts.map(post => {
       return (
-        <div key={post.id} className="">
+        <div key={`${post.id}-${post.title}`} className="">
           <h5 className="header">{post.title}</h5>
           <p className="ui message">{post.post}</p>
           {this.renderAdmin(post)}
@@ -37,9 +37,10 @@ class Posts extends Component {
       );
     });
   }
-  // have to be arrow function!!!
+
+  // has to be an arrow function!!!
   onSubmit = formValues => {
-    console.log(formValues);
+    // console.log(formValues);
     this.props.createNewPost({
       ...formValues,
       userId: this.props.currentUserId
@@ -52,6 +53,7 @@ class Posts extends Component {
         <div className="container">
           {this.props.isLoggedIn && <CreateBlogPost onSubmit={this.onSubmit} />}
         </div>
+       
         <div className="container">{this.renderPosts()}</div>
       </div>
     );

@@ -1,7 +1,16 @@
 import { combineReducers } from "redux";
 import moment from "moment";
 import { reducer as formReducer } from "redux-form";
-import { FETCH_CLIENTS, SIGN_IN, LOG_IN, LOG_OUT, FETCH_POSTS, FETCH_POST, CREATE_NEW_POST } from "../actions/types";
+import {
+  FETCH_CLIENTS,
+  SIGN_IN,
+  LOG_IN,
+  LOG_OUT,
+  FETCH_POSTS,
+  FETCH_POST,
+  CREATE_NEW_POST,
+  EDIT_POST
+} from "../actions/types";
 
 const addDefaultState = { sum: 0, addedNum: null };
 
@@ -129,7 +138,6 @@ const authReducer = (state = authReducerDefaultState, action) => {
   }
 };
 
-
 const postsReducerDefaultState = [];
 
 const postsReducer = (state = postsReducerDefaultState, action) => {
@@ -138,13 +146,14 @@ const postsReducer = (state = postsReducerDefaultState, action) => {
       return [...state, action.payload];
     case FETCH_POSTS:
       return [...action.payload];
-      case FETCH_POST:
-        return [...state, action.payload]
+    case FETCH_POST:
+      return [action.payload];
+    case EDIT_POST:
+      return state.map((post) => Number(post.id) === action.payload.id ? action.payload : post)
     default:
       return state;
   }
 };
-
 
 export default combineReducers({
   add: addReducer,
