@@ -1,0 +1,14 @@
+{
+  "name": "apitest",
+  "version": "1.0.0",
+  "description": "fake api",
+  "main": "index.js",
+  "scripts": {
+    "start": "json-server -p 3003 -w db.json"
+  },
+  "author": "OxiBo",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.15.1"
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "clients": [
+    {
+      "email": "OksanaS@ukr.net",
+      "password": "sha1$e2a1a563$1$e76b9eebca20d3c9cd43528ca851e1890f0b95d1",
+      "name": "Oksana",
+      "gender": "female",
+      "comments": "I am testing password and hashing them",
+      "userId": "k0ri5x4z",
+      "id": 43
+    },
+    {
+      "login": "New-Client",
+      "email": "new-client@new-client.new",
+      "password": "sha1$426f8d2b$1$91df1e91b342f3a4e759b997046f0777ececba02",
+      "name": "New Client",
+      "gender": "notReveal",
+      "comments": "It is a new client with login",
+      "userId": "k0rjql43",
+      "id": 44
+    },
+    {
+      "login": "test",
+      "email": "test@test.t",
+      "password": "sha1$372df25c$1$9d8fbb7c00ab7973394e90118af0882d31945919",
+      "name": "test",
+      "comments": "test",
+      "userId": "k0rlvvwn",
+      "id": 45
+    },
+    {
+      "login": "dsds",
+      "email": "sdsdd@sdsd.d",
+      "password": "sha1$22990958$1$ead299e0130a15e9e5b81256b73480b97825ac9d",
+      "name": "dsd",
+      "userId": "k0sxi00z",
+      "id": 46
+    },
+    {
+      "login": "Dave",
+      "email": "dave@dave.d",
+      "password": "sha1$75ee6920$1$1d48858a38551f226a1771a0346fdee13a801b12",
+      "name": "Dave",
+      "gender": "male",
+      "comments": "I am Dave",
+      "userId": "k0u3bk57",
+      "id": 47
+    },
+    {
+      "email": "q@q.q",
+      "login": "q",
+      "password": "sha1$e01d2273$1$af29d8afe5c318749d9553856d2ddae0f050c188",
+      "name": "q",
+      "gender": "male",
+      "comments": "qqqqq",
+      "userId": "k0vvbe1b",
+      "id": 48
+    }
+  ],
+  "posts": [
+    {
+      "title": "sdsdsdsd",
+      "post": "sdsdsdsdsd",
+      "id": 1
+    },
+    {
+      "title": "New Post",
+      "post": "it is a new post",
+      "id": 2
+    },
+    {
+      "title": "New Post 2",
+      "post": "it is a new post 2",
+      "id": 3
+    },
+    {
+      "title": "Create post at midnight",
+      "post": "11-40 post",
+      "currentUserId": "k0rlvvwn",
+      "id": 4
+    },
+    {
+      "post": "dsdsd",
+      "title": "dsdsd",
+      "currentUserId": "k0rlvvwn",
+      "id": 5
+    },
+    {
+      "title": "fdfdfdfd",
+      "post": "dfdfdfdf",
+      "currentUserId": "k0rlvvwn",
+      "id": 6
+    },
+    {
+      "title": "Test userId",
+      "post": "userId or current user id",
+      "userId": "k0rlvvwn",
+      "id": 7
+    },
+    {
+      "title": "Test Buttons",
+      "post": "LEts test butoons",
+      "userId": "k0rlvvwn",
+      "id": 8
+    },
+    {
+      "title": "Dave makes a new post",
+      "post": "It is Dave's post",
+      "userId": "k0u3bk57",
+      "id": 9
+    },
+    {
+      "title": "Initial values",
+      "post": "I cannot figure out the problem with initial values",
+      "userId": "k0rlvvwn",
+      "id": 10
+    },
+    {
+      "title": "WTF??",
+      "post": "for real!",
+      "userId": "k0vvbe1b",
+      "id": 14
+    },
+    {
+      "title": "WTF??",
+      "post": "for real!",
+      "userId": "k0vvbe1b",
+      "id": 15
+    }
+  ]
+}
