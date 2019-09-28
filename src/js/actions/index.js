@@ -94,32 +94,31 @@ export const createNewPost = formValues => async dispatch => {
   history.push("/posts");
 };
 
-export const fetchPost = (id) => async dispatch => {
-    const response = await clients.get(`/posts/${id}`);
-  
-    dispatch({ type: FETCH_POST, payload: response.data });
-  };
-  
-
+export const fetchPost = id => async dispatch => {
+  const response = await clients.get(`/posts/${id}`);
+  dispatch({ type: FETCH_POST, payload: response.data });
+};
 
 export const fetchPosts = () => async dispatch => {
-    const response = await clients.get("/posts");
+  const response = await clients.get("/posts");
   // console.log(response.data)
-    dispatch({ type: FETCH_POSTS, payload: response.data });
-  };
-  
+  dispatch({ type: FETCH_POSTS, payload: response.data });
+};
 
 export const editPost = (id, formValues) => async dispatch => {
-  const response = await clients.patch(`/posts/${id}`, {id: id,...formValues });
- 
-  dispatch({ type: EDIT_POST, payload: { ...response.data, id: id }});
- 
-  history.push("/posts")
-}
+  const response = await clients.patch(`/posts/${id}`, {
+    id: id,
+    ...formValues
+  });
 
+  dispatch({ type: EDIT_POST, payload: { ...response.data, id: id } });
 
-export const deletePost = (id) => async dispatch => {
+  history.push("/posts");
+};
+
+export const deletePost = id => async dispatch => {
   await clients.delete(`/posts/${id}`);
 
   dispatch({ type: DELETE_POST, payload: id });
+  history.push("/posts");
 };
