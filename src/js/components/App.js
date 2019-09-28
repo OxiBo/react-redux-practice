@@ -9,6 +9,7 @@ import NavBar from "./NavBar";
 import MainPage from "./MainPage";
 import Posts from "./Posts";
 import EditPost from "./EditPost";
+import DeletePost from "./DeletePost";
 import CounterOne from "./CounterOne";
 import CounterTwo from "./CounterTwo";
 import Calculator from "./Calculator";
@@ -34,13 +35,14 @@ class App extends Component {
   // };
   render() {
     return (
-      <div className="app">
+      <div className="">
         <Router history={history}>
           <div>
             <NavBar />
             <Route path="/" exact component={MainPage} />
             <Route path="/posts" exact component={Posts} />
             <Route path="/posts/editPost/:id" exact component={EditPost} />
+            <Route path="/posts/deletePost/:id" exact component={DeletePost} />
             <Route path="/counter-one" component={CounterOne} />
             <Route path="/counter-two" component={CounterTwo} />
             <Route path="/date-picker" component={DatePicker} />

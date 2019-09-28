@@ -7,10 +7,8 @@ import { fetchPosts, createNewPost, deletePost } from "../actions";
 
 class Posts extends Component {
   componentDidMount() {
-    if(this.props.isLoggedIn) this.props.fetchPosts();
+    if (this.props.isLoggedIn) this.props.fetchPosts();
   }
-
-  
 
   renderAdmin(post) {
     if (this.props.currentUserId === post.userId) {
@@ -19,20 +17,27 @@ class Posts extends Component {
           <Link className="ui button primary" to={`/posts/editPost/${post.id}`}>
             EDIT
           </Link>
-          <button className="ui button negative" onClick={() =>this.props.deletePost(post.id)}>DELETE</button>
+          <Link
+            className="ui button negative"
+            to={`/posts/deletePost/${post.id}`}>
+            DELETE
+          </Link>
           {/* {this.editPost() && <CreateBlogPost  />} */}
         </div>
       );
     }
-  };
+  }
 
+  // {this.renderAdmin(post)} goes where it is so that semantic ui gave the div proper styles
   renderPosts() {
     return this.props.posts.map(post => {
       return (
-        <div key={`${post.id}`} className="item">
-          <h5 className="ui header">{post.title}</h5>
-          <p className="ui message">{post.post}</p>
+        <div key={`${post.id}`} className="item container">
           {this.renderAdmin(post)}
+          <h5 className="header  content">
+            {post.title}
+            <p className="description">{post.post}</p>
+          </h5>
         </div>
       );
     });
@@ -45,15 +50,23 @@ class Posts extends Component {
       ...formValues,
       userId: this.props.currentUserId
     });
+    
   };
 
   render() {
     return (
       <div>
         <div className="container">
-          {this.props.isLoggedIn && <CreateBlogPost initialValues={{title: "WTF??", post: "for real!"}} onSubmit={this.onSubmit} />}
+          {this.props.isLoggedIn ? (
+            <CreateBlogPost
+              form="createBlogPostForm"
+              onSubmit={this.onSubmit}
+            />
+          ) : (
+            <div>not authorized</div>
+          )}
         </div>
-       
+
         <div className="ui celled list">{this.renderPosts()}</div>
       </div>
     );
