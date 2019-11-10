@@ -1,10 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-
+// import context
+import ResultContext from "./contexts/ResultContext";
 import { mult, divide, set, reset } from "../actions";
+import Flag from "./Flag";
 
 const CounterTwo = ({ res, by, mult, divide, set, reset }) => {
-//   console.log(res, by);
+  //   console.log(res, by);
   return (
     <div>
       <div className="display">
@@ -13,7 +15,9 @@ const CounterTwo = ({ res, by, mult, divide, set, reset }) => {
       <input
         type="number"
         value={by}
-        onChange={e => {set(e.target.value)}}
+        onChange={e => {
+          set(e.target.value);
+        }}
       />
       <button
         className="btn btn-primary"
@@ -39,6 +43,9 @@ const CounterTwo = ({ res, by, mult, divide, set, reset }) => {
       >
         Reset
       </button>
+      <ResultContext.Provider value={{res, by}}>
+        <Flag />
+      </ResultContext.Provider>
     </div>
   );
 };

@@ -23,6 +23,9 @@ const NavBar = (props) => {
         <Link to="/counter-two" className="item">
           Counter Two
         </Link>
+        <Link to="/timer" className="item">
+          Timer
+        </Link>
         <Link to="/date-picker" className="item">
           <i className="calendar alternate outline icon"></i>Date picker
         </Link>

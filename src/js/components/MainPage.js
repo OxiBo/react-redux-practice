@@ -25,7 +25,7 @@ class MainPage extends Component {
   render() {
     // console.log(this.props);
     return (
-      <div className="ui">
+      <div className="ui container">
         <h1 className="ui header">Main page</h1>
         <div className="ui list container">{this.renderComments()}</div>
       </div>

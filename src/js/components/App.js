@@ -11,6 +11,7 @@ import Posts from "./Posts";
 import EditPost from "./EditPost";
 import DeletePost from "./DeletePost";
 import CounterOne from "./CounterOne";
+import Timer from "./Timer";
 import CounterTwo from "./CounterTwo";
 import Calculator from "./Calculator";
 import DatePicker from "./DatePicker";
@@ -45,6 +46,7 @@ class App extends Component {
             <Route path="/posts/deletePost/:id" exact component={DeletePost} />
             <Route path="/counter-one" component={CounterOne} />
             <Route path="/counter-two" component={CounterTwo} />
+            <Route path="/timer" component={Timer} />
             <Route path="/date-picker" component={DatePicker} />
             {/* <Route path="/single-date-picker" component={SingleDatePicker} /> */}
             <Route path="/calculator" component={Calculator} /> 

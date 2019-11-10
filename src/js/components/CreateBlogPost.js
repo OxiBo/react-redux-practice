@@ -77,6 +77,7 @@ class CreateBlogPost extends Component {
   onSubmit = formValues => {
     // console.log(formValues);
     this.props.onSubmit(formValues);
+    this.props.reset(); // to remove entered values when form is submitted
   };
   render() {
     // console.log(this.props);
@@ -124,4 +125,4 @@ const validate = formValues => {
   return errors;
 };
 
-export default reduxForm({ form: "blogPostForm", enableReinitialize : true, validate })(CreateBlogPost);
+export default reduxForm({ form: "blogPostForm", validate })(CreateBlogPost);

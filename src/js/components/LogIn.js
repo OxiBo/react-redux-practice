@@ -16,7 +16,7 @@ class LogIn extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="ui container">
         <LogInForm onSubmit={this.onSubmit} clients={this.props.clients} />
       </div>
     );

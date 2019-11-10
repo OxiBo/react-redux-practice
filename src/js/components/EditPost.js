@@ -11,7 +11,7 @@ class EditPost extends Component {
   onSubmit = formValues => {
     // console.log(formValues);
     // console.log(this.props.match.params.id)
-    this.props.editPost(this.props.match.params.id, formValues)
+    this.props.editPost(this.props.match.params.id, formValues);
   };
 
   render() {
@@ -24,22 +24,18 @@ class EditPost extends Component {
         return (
           <div>
             <CreateBlogPost
+              form="editBlogPostForm"
               initialValues={{
                 title: this.props.currentPost.title,
                 post: this.props.currentPost.post
               }}
               onSubmit={this.onSubmit}
-              
             />
           </div>
         );
       }
     } else {
-      return (
-        <div>not authorized
-      
-        </div>
-      )
+      return <div>not authorized</div>;
     }
   }
 }
